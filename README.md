@@ -1,0 +1,1 @@
+same as https://github.com/pinked/camera-synology-lister but publishes to iot rather than running a webservice

@@ -1,0 +1,21 @@
+version: "3"
+services:
+  cams:
+    read_only: true
+    labels:
+      - com.df.cron2=true
+      - com.df.distribute=true
+      - com.df.schedule=0 * * * *
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    image: chrisns/camera-synology-lister-iot:${DRONE_BUILD_NUMBER}
+    environment:
+      - SYNOLOGY_USER=${SYNOLOGY_USER}
+      - SYNOLOGY_PASS=${SYNOLOGY_PASS}
+      - SYNOLOGY_HOST=${SYNOLOGY_HOST}
+      - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_IOT_ENDPOINT_HOST=${AWS_IOT_ENDPOINT_HOST}
+      - AWS_REGION=${AWS_REGION}
