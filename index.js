@@ -24,7 +24,7 @@ const get_feed_urls = (cameras) => cameras.map(camera => {
     internal: camera.name.includes("internal"),
     status: camera.status,
     jpg: `${SYNOLOGY_HOST}/webapi/entry.cgi?api=SYNO.SurveillanceStation.Camera&version=1&method=GetSnapshot&cameraId=${camera.id}&format=mjpeg&_sid=${session_id}`,
-    video: `${SYNOLOGY_HOST}/webapi/SurveillanceStation/videoStreaming.cgi?api=SYNO.SurveillanceStation.VideoStream&version=1&method=Stream&cameraId=${camera.id}&format=mjpeg&_sid=${session_id}`
+    video: `${SYNOLOGY_HOST}/webapi/SurveillanceStation/videoStreaming.cgi?api=SYNO.SurveillanceStation.VideoStream&version=1&method=Stream&cameraId=${camera.id}&_sid=${session_id}`
   }
 })
 
