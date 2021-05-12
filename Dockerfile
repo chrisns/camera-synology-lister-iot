@@ -1,5 +1,4 @@
-FROM node:alpine
-LABEL org.opencontainers.image.source https://github.com/chrisns/camera-synology-lister-iot
+FROM node:16.1.0-alpine
 
 RUN mkdir /app
 WORKDIR /app
